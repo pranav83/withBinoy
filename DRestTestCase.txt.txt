@@ -1,0 +1,269 @@
+Test cases 
+
+Scenario: Verify image, logo and right and left three slides text box on launching screen
+Given I open app first time 
+And I should see logo, image and sliding text box
+When I slide text box to right 
+Then text box should slide right 
+When I slide text box  to left
+Then text box should slide left  
+
+Scenario: Verify sliding text box on app launching screen and third slide 
+Given I am on launching screen   
+When I slide the text box on right 
+Then third slide prompt login and join button
+
+Scenario: Verify login and join button 
+Given I am on launching screen  
+And there is login and join button 
+When I tap on login button 
+Then I should land on login screen 
+When I tap on join button 
+Then I should land on create account screen 
+
+
+
+
+
+
+Scenario: Verify why register link text, checkboxes, email text box, go button on create account screen
+Given I am on create account screen  
+And there why register? Link text 
+When I tap on link text 
+Then I should see overlay screen with why register information 
+When I tap on close 
+Then overlay screen should close 
+And I should see create account screen back
+And there is terms and conditions and sign up email check boxes
+When I tick terms and condition checkbox
+Then play as a guest button is enable
+When I tick on sign up email checkbox
+And enter valid email 
+When I tap on on go button 
+Then I should land Drest access code screen 
+
+Scenario: Verify when terms and conditions checkbox is tick then play as guest, google and facebook button is enable if not tick then it is disable
+Given I am on create account screen  
+When I tick on terms and conditions checkbox 
+Then play as a guest, google and facebook button is enable
+When I untick checkbox 
+Then play as a guest, google and facebook button is disable
+
+Scenario: Verify when user tap on google user should see  email account screen and navigate to add your details screen
+Given I am on create account screen  
+When I tap on google  button  
+Then I should see choose an email account screen 
+When I tap google account 
+Then I should land on add your details screen 
+
+Scenario: Verify D edit button on tap help, camera and gallery overlay screen pop up   
+Given I am on add your details screen  
+When I tap D edit button 
+Then I should see help, camera and gallery overlay screen pop up 
+When I tap on get help 
+Then mobile should navigate  to help screen  
+When I tap on camera 
+Then mobile should prompt allow Drest to access 
+And I should see allow and deny button
+When I tap on allow 
+Then I should navigate outside application on mobile camera
+And I tap on deny 
+Then I should see back add details screen 
+When I tap on gallery  
+Then mobile should prompt allow Drest to access 
+And I should see allow and deny button
+When I tap on allow 
+Then I should navigate outside application on mobile gallery
+And I tap on deny 
+Then I should see back add details screen 
+
+
+
+Scenario: Verify when user enter valid username add your username button is enable
+Given I am on add your details screen
+When user enter valid user name 
+Then add your username button is enable
+
+Scenario: Verify when user enter invalid username add your username button is enable
+Given I am on add your details screen
+When user enter invalid user name 
+Then I should see enter valid user name under username input box text 
+And add your username button is disable
+
+Scenario: Verify on tap continue with facebook  terms and condition link text and facebook button 
+Given I am on create account screen 
+When I tap on facebook button  
+Then see continue with user facebook button
+And privacy policy and terms link text 
+When I tap privacy policy and terms link text 
+Then I should navigate outside application on browser
+And I should see Drest privacy policy screen 
+When tap on back button 
+Then I should land to application screen 
+When I tap on facebook button 
+Then I should successfully register with facebook 
+And I should land on home screen 
+And overlay your style screen with continue button 
+When I tap on continue 
+Then I should see home screen 
+
+Scenario: Verify already have an account? Log in link text
+Given I am on create account screen
+And there is login link text   
+When I tap on Log in link text   
+Then I should navigate login screen 
+
+Scenario: Verify support@drest.com email link text
+Given I am on create account screen
+And there is email link text   
+When I tap on email link text   
+Then I should navigate outside application on email screen 
+
+Scenario: Verify when user enter valid email then go button is enable
+Given I am on create account screen
+And there is email input text box  
+When I enter valid email   
+Then I go button should enable  
+
+
+Scenario: Verify when user enter invalid email then go button is disable
+Given I am on create account screen
+And there is email input text box  
+When I enter invalid email
+Then I should see red text not valid email address   
+And go button should disable  
+
+
+Scenario: Verify user is able to create account 
+Given I am create account page 
+And I tick on terms and condition and signup email check box
+And enter valid email 
+When I tap on go button 
+Then I should land on enter 4 digit code screen 
+
+
+
+Scenario: Verify when user enter valid number access code then go button is enable
+Given I am on enter 4 digit access code screen 
+And there is access code input   
+When I enter valid access code   
+Then I go button should enable
+And I should see add your details screen   
+
+Scenario: Verify when user enter alphabet then go button is disable
+Given I am on enter 4 digit access code screen
+And there is access code input   
+When I enter invalid access code
+Then  go button should disable
+
+Scenario: Verify when enter invalid number then tap  go button 
+Given I am on enter 4 digit access code screen
+And there is access code input   
+When I enter invalid number access code
+Then  go button should enable
+When I tap on go button  
+Then I should see overlay box with help and ok 
+When I tap on help 
+Then I should land on help screen 
+When I tap on ok  
+Then overlay screen disappear 
+
+Scenario: Verify send again link text
+Given I am on enter 4 digit access code screen
+And there is send again link text 
+When I tap on send again 
+Then I should see sent text blink
+And I should receive 4 digit access code again on my email
+
+
+Scenario: Verify when user enter valid email login button is enable
+and user should land on enter 4 digit screen
+Given I am on login screen 
+When I enter valid email 
+Then login button is enable
+And I should see 4 digit access code screen 
+
+
+Scenario: Verify when user enter invalid email login button is disable
+and user should enter valid email 
+Given I am on login screen 
+When I enter invalid email 
+Then I should enter valid email text 
+And login button is enable
+
+Scenario: Verify user is able to login with google account 
+Given I am on login screen 
+And there continue with google button 
+When I tap on google button 
+Then I should see choose google account screen 
+When I choose google account 
+Then I should land on home 
+And I should see overlay screen with tap to continue button 
+When I tap on continue button 
+Then I should see home screen 
+
+Scenario: Verify user is able to login with facebook account 
+Given I am on login screen 
+And there continue with facebook button 
+When I tap on facebook button 
+Then I should see choose facebook account screen 
+When I choose facebook account 
+Then I should land on home 
+And I should see overlay screen with tap to continue button 
+When I tap on continue button 
+Then I should see home screen 
+
+Scenario: Verify user claim reward when check in with valid email
+Given I login with valid email 
+And I should see the daily DRest screen with claim reward button
+When I tap on claim reward 
+Then I should claim reward 
+And I see overly screen enjoying Drest with yes and no Thanks button
+When I tap on any one button 
+Then I should land on home screen with overly style screen 
+
+Scenario: Verify 1 new reward button on home screen
+Given I am home screen 
+And there is 1 new reward button 
+When I tap on 1 new reward button 
+Then I should see overly screen with open  gift box button
+When I tap on gift box
+Then I should navigate to Drest champions screen
+And I should see swipe to open text 
+When I swipe screen 
+Then I should land item screen 
+When I swipe on item screen 
+Then I should see items are now in your wardrobe and close button
+When I tap on close button 
+Then I should see overlay screen with open gift box button disable with close 
+When I tap on close home screen 
+Then I should land on  
+
+
+
+Scenario: Verify user get notification when other user follow 
+Given I am on notification screen 
+When other user follow my account 
+Then I should get notification with user account name follow you
+When I tap on user 
+Then I should land on user profile screen
+And there is back button 
+When I tap on back button 
+Then I should land back on notification screen 
+
+ 
+Scenario: Verify user is able to scroll down and blue arrow button is disable when user scroll down 
+Given I am on home screen
+And there is blue arrow button  
+When I scroll screen down
+Then I should able scroll screen down 
+And blue button is disable 
+
+ 
+
+
+
+
+   
+
+
